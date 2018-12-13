@@ -2,7 +2,6 @@
 from django.db import models
 from django.utils import timezone
 
-
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
@@ -18,3 +17,5 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+#post1 = Post.ocbjects.create(author = 'dani', title ='text 1', text = 'bla,,,')
+#post1.publish()
