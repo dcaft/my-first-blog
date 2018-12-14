@@ -1,6 +1,7 @@
 # Create your models here.
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE)
@@ -17,5 +18,8 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
-#post1 = Post.ocbjects.create(author = 'dani', title ='text 1', text = 'bla,,,')
+
+me=User.objects.get (username='dani')
+post1=Post.objects.create(author = me, title ='text_gghj', text = 'bla,,,')
+
 #post1.publish()
