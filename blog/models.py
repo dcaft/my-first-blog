@@ -19,7 +19,7 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-me=User.objects.get (username='dani')
-post1=Post.objects.create(author = me, title ='text_gghj', text = 'bla,,,')
-
-#post1.publish()
+me=User.objects.get(username='dani')
+post1=Post.objects.create(author=me, title='text_gghj', text='bla,,,')
+Post.objects.filter(published_date__lte=timezone.now())
+post1.publish()
