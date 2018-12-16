@@ -7,19 +7,18 @@ class Post(models.Model):
     author=models.ForeignKey('auth.User', on_delete=models.CASCADE)
     title=models.CharField(max_length=200)
     text=models.TextField()
-    created_date=models.DateTimeField(
-            default=timezone.now)
-    published_date=models.DateTimeField(
-            blank=True, null=True)
+    created_date=models.DateTimeField(default=timezone.now)
+    published_date=models.DateTimeField(blank=True, null=True)
 
     def publish(self):
-        self.published_date = timezone.now()
+        self.published_date=timezone.now()
         self.save()
 
     def __str__(self):
         return self.title
-doc='abcdefghijklmnopq'
+
+#doc='abcdefghijklmnopq'
 me=User.objects.get(username='dani')
-post1=Post.objects.create(author=me, title='abecedari', text=doc)
+#post1=Post.objects.create(author=me, title='abecedari', text=doc)
 Post.objects.filter(published_date__lte=timezone.now())
-post1.publish()
+#post1.publish()

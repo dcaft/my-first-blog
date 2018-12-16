@@ -1,11 +1,11 @@
 {% load static %}
 <html>
 	<head>
-		<link	href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext"	rel="stylesheet" type="text/css">
+		<link	href="//fonts.googleapis.com/css?family=Tahoma&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 		<link	rel="stylesheet" href="{% static 'css/blog.css' %}">
 		<link	rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 		<link	rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap-theme.min.css">
-		<title>Dani	blog</title>
+		<title>Dani blog</title>
 	</head>
 	<body>
 		<div class="page-header">
@@ -16,14 +16,14 @@
 				<div class="col-md-8">
 					{% block content %}
 						{% for post	in posts %}
-				 			<div class="post">
-			  				<div class="date">
+							<div class="post">
+								<div class="date">
 									<p>{{ post.published_date }}</p>
 								</div>
 								<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
 								<p>{{ post.text|linebreaksbr }}</p>
 							</div>
-						{% endfor	%}
+						{% endfor %}
 					{% endblock	%}
 				</div>
 			</div>
